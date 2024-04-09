@@ -1,7 +1,9 @@
-export function middleware() {
-  console.log('middleware')
+import { NextResponse } from 'next/server'
+
+export function middleware(req) {
+  return NextResponse.redirect(new URL('/', req.url))
 }
 
-// 3:42
-
-// start from here
+export const config = {
+  matcher: ['/about/:path*'],
+}
